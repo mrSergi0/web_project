@@ -1,0 +1,404 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--строка адаптива content="width=device-width означает,что сайт должен быть той же ширины,что и ширина экрана девайса с которого открывается.-->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Safari tour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+    <header class="header">
+      <div class="container">
+  
+        <div class="header__inner">
+          <div class="header__top">
+            <a class="logo" href="#">
+              <img class="logo__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705900/logo_moluwo.svg" alt="logo">
+            </a>
+            <div class="header__phone">
+              <span>Заказ туров и бронирование:</span>
+              <a class="header__phone-number" href="tel:80508543543">тел. 8-050-8-543-543</a>
+              <p>Сегодня: {{current_date}}</p> <!-- двойные фигурные скобки нужны для того чтобы вставлять ключи из словаря context(см. view). Это Jinja - спец синтаксис для работы с хтмл -->
+            </div>
+            <nav class="menu">
+              <button class="menu__btn">
+                <span class="row"></span>
+              </button><!--кнопка создана в момент адаптива,чтобы видоизменить меню при маленькой ширине экрана-->
+              <ul class="menu__list">
+                <li class="menu__item"><a class="menu__link" href="#">Бронирование</a>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="#">Отзывы</a>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="#">Туры </a>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="#">Об Африке</a>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="#">О нас</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <h1 class="header__title">
+            Сафари по Африке
+          </h1>
+          <div class="header__content">
+            <p class="header__descr">Туры по самым экзотическим местам
+              Поехали с нами за новыми впечатлениями!
+            </p>
+            <a class="header__btn" href="#">Оставить заявку</a>
+             <!--стрелка-прокрутка-->
+            <div class="header__arrow">
+              <a class="header__arrow-link" href="#">
+                <img class="header__arrow-img" src={% static "main/img/arrow.svg" %} alt="arrow">
+              </a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </header>
+  
+    <div class="direction">
+      <div class="container">
+        <h2 class="travel-info__title title">Основные направления</h2>
+        <div class="direction__inner">
+  
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705911/directions-1_kivxt0.jpg" alt="Намибия" >
+            <p class="description__text">Намибия</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705910/directions-2_a85nss.jpg" alt="Танзания" >
+            <p class="description__text">Танзания</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705910/directions-3_wlumjk.jpg" alt="Кения" >
+            <p class="description__text">Кения</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705910/directions-4_n8udnb.jpg" alt="Ботсвана" >
+            <p class="description__text">Ботсвана</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705910/directions-5_umudx4.jpg" alt="Кейптаун" >
+            <p class="description__text">Кейптаун</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705910/directions-6_rxzvlu.jpg" alt="Мадагаскар" >
+            <p class="description__text">Мадагаскар</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705909/directions-7_tgfjqn.jpg" alt="Занзибар" >
+            <p class="description__text">Занзибар</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705909/directions-8_r7qzul.jpg" alt="ЮАР" >
+            <p class="description__text">ЮАР</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705909/directions-9_fgh2c9.jpg" alt="Мозамбик" >
+            <p class="description__text">Мозамбик</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705911/directions-10_yayc5q.jpg" alt="Замбия" >
+            <p class="description__text">Замбия</p>
+          </div>
+          <div class="direction__item">
+            <img class="direction__img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705911/directions-11_gwwb5j.jpg" alt="Конго" >
+            <p class="description__text">Конго</p>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <section class="travel-info">
+      <div class="container">
+        <h2 class="travel-info__title1 title">Наши услуги</h2>
+        <div class="travel-info__items">
+          <div class="travel-info__item">
+            <img class="travel-info__img" src={% static "main/img/icon-1.svg" %} alt="" >
+            <p class="tavel-info__text">Полная организация отдыха: групповые и индивидуальные туры.</p>
+          </div>
+          <div class="travel-info__item">
+            <img class="travel-info__img" src={% static "main/img/icon-2.svg" %} alt="" >
+            <p class="tavel-info__text">Организация трансфера из любой точки мира</p>
+          </div>
+          <div class="travel-info__item">
+            <img class="travel-info__img" src={% static "main/img/icon-3.svg" %} alt="" >
+            <p class="tavel-info__text">Проживание в отелях по маршруту</p>
+          </div>
+          <div class="travel-info__item">
+            <img class="travel-info__img" src={% static "main/img/icon-4.svg" %} alt="" >
+            <p class="tavel-info__text">Аренда автомобилей и любого вида транспорта</p>
+          </div>
+          <div class="travel-info__item">
+            <img class="travel-info__img" src={% static "main/img/icon-5.svg" %} alt="" >
+            <p class="tavel-info__text">Медицинская страховка</p>
+          </div>
+          <div class="travel-info__item">
+            <img class="travel-info__img" src={% static "main/img/icon-6.svg" %} alt="" >
+            <p class="tavel-info__text">Сопровождение русскоговорящих гидов</p>
+          </div>
+          <div class="travel-info__item">
+            <img class="travel-info__img" src={% static "main/img/icon-7.svg" %} alt="" >
+            <p class="tavel-info__text">Организация VIP-туров</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="popular">
+      <div class="container">
+        <h2 class="popular__title title">Популярные предложения</h2>
+        <div class="popular__items">
+          <!--При описании тега "а" прописан атрибут style. Это сделано для того,чтобы если заказчик захочет поменять картинку на сайте, программист смог реализовать ему такую возможность. В любой другой ситуации мы бекграунд прописывали бы в CSS-->
+          <a class="popular__link" href="#" style="background-image: url("main/img/popular-1.jpg");" >
+            <h4 class="popular__linl-title">ПУТЕШЕСТВИЕ ПО НАМИБИИ</h4>
+            <p class="popular__price">от 3000 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-2.jpg" %});" >
+            <h4 class="popular__linl-title">КЛАССИКА КЕНИИ</h4>
+            <p class="popular__price">от 3500 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-3.jpg" %});" >
+            <h4 class="popular__linl-title popular__linl-title--big">САМЫЕ ПОПУЛЯРНЫЕ САФАРИ ПАРКИ И ЗАПОВЕДНИКИ ТАНЗАНИИ</h4>
+            <p class="popular__country">Танзания</p>
+            <p class="popular__time">7 дней / 6 ночей</p>
+            <p class="popular__price">от 1700 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-4.jpg" %});" >
+            <h4 class="popular__linl-title">ИССЛЕДОВАНИЕ БОТСВАНЫ</h4>
+            <p class="popular__price">от 2500 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-5.jpg" %});" >
+            <h4 class="popular__linl-title">ПУТЕШЕСТВИЕ ЧЕРЕЗ 5 СТРАН ЮЖНОЙ АФРИКИ</h4>
+            <p class="popular__price">от 5000 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-6.jpg" %});" >
+            <h4 class="popular__linl-title popular__linl-title--big">ГРАНДИОЗНОЕ ПРИКЛЮЧЕНИЕ ПО 9 СТРАНАМ АФРИКИ</h4>
+            <p class="popular__country">ЮАР, Замбия, Намибия, Зимбабве, Ботсвана, Мозамбик, Танзания, Кения</p>
+            <p class="popular__time">24 дня / 23 ночи</p>
+            <p class="popular__price">от 6000 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-7.jpg" %});" >
+            <h4 class="popular__linl-title">ВЕЛИКОЛЕПНЫЙ КЕЙПТАУН</h4>
+            <p class="popular__price">от 3500 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-8.jpg" %});" >
+            <h4 class="popular__linl-title">ПУТЕШЕСТВИЕ ПО ЮАР </h4>
+            <p class="popular__price">от 2500 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-9.jpg" %});" >
+            <h4 class="popular__linl-title">ВЕЛИКАЯ МИГРАЦИЯ В ТАНЗАНИИ И ОТДЫХ НА ЗАНЗИБАРЕ</h4>
+            <p class="popular__price">от 1700 $</p>
+          </a>
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-10.jpg" %});" >
+            <h4 class="popular__linl-title">ОТ КЕЙПТАУНА ДО ВОДОПАДА ВИКТОРИЯ</h4>
+            <p class="popular__price">от 2500 $</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  <!--В комментарии код блока когда карта в виде простой картинки 
+    <section class="map">
+      <div class="container">
+        <h2 class="africa">Карта Африки</h2>
+        <img src="images/map.jpg">
+      </div>
+    </section>
+  а ниже пример номальной карты, которую можно потыкать-->
+    <section class="map">
+      <div class="container">
+        <h2 class="map__title title">Карта Африки</h2>
+        <!--далее открываем google maps, находим нужную нам область карты или вбиваес точный адрес, вызываем меню, кликаем "ссылка/код" - встраивание карт - копировать HTML - в коде редактируем ширину и высоту согласно макету-->
+        <iframe class="map__iframe" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d26015069.10288539!2d37.11240513146736!3d-12.855353881150116!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2sby!4v1635676066569!5m2!1sru!2sby" width="100%" height="609" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </section>
+  
+    <!--блок с видео-->
+    <section class="about">
+      <div class="container">
+        <div class="about__inner"> <!--блок разделим на 2части. Одна с текстом,вторая с видео.Этот div как обертка для двух частей-->
+          <div class="about__content">
+            <h2 class="about__title title">О сафари турах</h2>
+            <p class="about__text">Восточная и Южная Африка являются самыми популярными местами, где можно насладиться увлекательным путешествием, под названием сафари. Именно здесь созданы все условия, чтобы туристы могли почувствовать себя частичкой девственной природы Африки. Туры сафари в Африку характеризуются уникальными программами, в рамках которых туристы перемещаются на комфортабельных, специализированных автомобилях или автобусах.</p>
+            <a class="about__link" href="https://youtravel.me/blog/strany/top_safari_v_afrike">Читать подробней</a>
+          </div>
+          <div class="about__popup"> <!--По сути это фоновое изображение с кнопкой--ссылкой .нажав на которую загрузится видео-->
+            <a class="popup__link" href="https://www.youtube.com/watch?v=S_txHCAnAoE">
+              <img class="about__link-img" src="images/popup.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <!-- Фотогалерея. Оформлено в виде ссылки на полноразмерное изображение с бекграундом в виде маленького превью -->
+    <section class="gallery">
+      <div class="container">
+        <div class="gallery__top">
+          <h2 class="gallery__title title">Фотогалерея</h2>
+        </div>
+        <div class="gallery__slider">
+          <div class="gallery__item">
+            <div class="gallery__item-inner">
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705910/gallery-1_x0ckq3.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-1.jpg" %}  width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705906/gallery-2_p1ithr.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-2.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705905/gallery-3_y9jatr.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-3.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705904/gallery-4_wjrnuf.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-4.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705904/gallery-5_q1ashn.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-5.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705906/gallery-6_knzvhn.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-6.jpg" %} width="352px" height="256px" alt="">
+              </a>         
+            </div>
+          </div>
+          <div class="gallery__item">
+            <div class="gallery__item-inner">
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705903/gallery-7_zelbu0.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-7.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705902/gallery-8_wfmopz.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-8.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705902/gallery-9_pr11ad.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-9.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705909/gallery-10_ttfbzq.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-10.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705910/gallery-11_nsrfzm.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-11.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705908/gallery-12_tnvqdu.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-12.jpg" %} width="352px" height="256px" alt="">
+              </a>            
+            </div>
+          </div>
+          <div class="gallery__item">
+            <div class="gallery__item-inner">
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705908/gallery-13_c56uij.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-13.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705909/gallery-14_m1tsxf.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-14.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705906/gallery-15_vbxa2p.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-15.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705907/gallery-16_tqg5w6.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-16.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705907/gallery-17_gkwvvi.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-17.jpg" %} width="352px" height="256px" alt="">
+              </a>
+              <a class="gallery__item-link" href="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705906/gallery-18_uimfeo.jpg">
+                <img class="gallery__item img" src={% static "main/img/gallery-18.jpg" %} width="352px" height="256px" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Сафари тур премиум класса-->
+    <section class="tour">
+      <div class="container">
+        <h2 class="tour__title title">Сафари тур премиум класса</h2>
+        <div class="tour__box">
+          <p class="tour__text">Сафари тур - это уникальное путешествие в мир дикой природы, знакомство с многогранной Африкой, наблюдение за дикими животными в их привычной среде обитания.</p>
+          <p class="tour__text"><span>САФАРИ ТУРИСТИК</span> специализируется на элитном туризме и представляет своим клиентам уникальные программы сафари туров.Среди представленных вариантов можно найти нечто неповторимое, по вашему вкусу.</p>
+          <p class="tour__text">Если вы желаете отправиться в самое незабываемое путешествие в вашей жизни, побывать в уникальных местах и увидеть то, что удается лицезреть немногим ? тогда сафари туры созданы для вас.</p>
+          <p class="tour__text">Сафари туры выбирают туристы, которые предпочитают динамичный, яркий, насыщенный эмоциями и впечатлениями отдых.   
+            Программы сафари туров по Африке рассчитаны на определенную группу людей, которые под покровительством куратора, осуществляют увлекательное путешествие по заранее спланированному маршруту. Мы ориентированы на клиентов VIP класса, поэтому все предложения, представленные в нашей коллекции, отличаются высшим классом, детально продуманной программой, первоклассным сервисом и индивидуальным подходом к каждому участнику путешествия. У нас на сайте вы можете прочитать все подробности о программах уже сформированных туров по сафари.</p>
+        </div>
+        <div class="tour__info">
+          <div class="tour__info-item">
+            16
+            <p class="tour__info-text">лет успешной
+              работы</p>
+          </div>
+          <div class="tour__info-item">
+            50
+            <p class="tour__info-text">гостиниц без
+              посредников</p>
+          </div>
+          <div class="tour__info-item">
+            25+
+            <p class="tour__info-text">собственных
+              туров</p>
+          </div>
+          <div class="tour__info-item">
+            1220000
+            <p class="tour__info-text">кв. км – площадь наших
+              путешествий</p>
+          </div>
+          <div class="tour__info-item">
+            5000
+            <p class="tour__info-text">довольных туристов</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Блок отправки сообщений-->
+    <section class="booking">
+      <div class="container">
+        <h2 class="booking__title title">Забронируйте отдых в Африке</h2>
+        <form class="booking__form">
+          <input class="booking__input" type="text" placeholder="Ваше имя">
+          <input class="booking__input" type="text" placeholder="Телефон">
+          <input class="booking__input" type="text" placeholder="E-mail">
+          <textarea class="booking__area" placeholder="Комментарий"></textarea>
+          <button class="booking__btn" type="submit">Отправить заявку</button>
+          <!--Ниже создаем чекбокс-->
+          <label class="booking__label">
+            <input class="booking__checkbox" type="checkbox">
+            <!--span ниже создается для того чтобы далее стилизовать чекбокс,т.к чекбокс созданный по умолчанию мы скрыли в CSS-->
+            <span class="booking__checkbox-style"></span>
+            Согласие на обработку персональных данных
+          </label>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__logo">
+          <a class="logo" href="#">
+            <img class="logo__img" src={% static "main/img/logo.svg" %} alt="logo">
+          </a>
+        </div>
+        <div class="footer__box">
+          <div class="footer__info">
+            <p class="footer__box-title">Турагентство «Сафари Туристик»</p>
+            <p class="footer__copy">© 2021. Все права защищены</p>
+            <a class="footer__link" href="#">Политика конфиденциальности</a>
+          </div>
+          <div class="footer__adress">
+            <p class="footer__box-title">Адрес:</p>
+            <p class="footer__adress-text">г. Киев, ул.Мира, 20,
+              отель «Динамо», 1 этаж</p>
+          </div>
+          <div class="footer__contacts">
+            <p class="footer__box-title">Заказ туров и бронирование:</p>
+            <a class="footer__phone" href="tel:80508543543">тел. 8-050-8-543-543</a>
+            <a class="footer__mail" href="mailto:safari_turistic@gmail.com">e-mail: safari_turistic@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  </html>   
