@@ -17,10 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import main.views as main_views # импортируем views из папки main
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Здесь мы описываем конфигурации тех урл, которые юзер будет использовать для взаимодейтсвия с сайтом!
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('main_page/', main_views.test), # прописываем путь к функции test в папке main в файле views. Теперь по запросу url main_page/ должна сработать функция test.
-    path('', main_views.test), # таким образом страницу main_page можно сделать стартовой.В пути(первый параметр) оставляем пустую строку.
+    path('', main_views.test, name='main'), # таким образом страницу main_page можно сделать стартовой.В пути(первый параметр) оставляем пустую строку.
+    path('posts/', main_views.posts, name='posts'),
+    path('posts/<int:post_id>/', main_views.post, name='post'),
+    path('posts/add', main_views.add_post, name='add')
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Как только загружается новый медиа файл по адресу settings.MEDIA_ROOT, он автоматически встраивается в работу статик и сюда добавляется новый паттер который таргетирован на новый загруженный файл.

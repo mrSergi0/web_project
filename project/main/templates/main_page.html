@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href={% static "main/css/style.css" %}>
 </head>
 <body>
   
@@ -33,7 +34,7 @@
               <ul class="menu__list">
                 <li class="menu__item"><a class="menu__link" href="#">Бронирование</a>
                 </li>
-                <li class="menu__item"><a class="menu__link" href="#">Отзывы</a>
+                <li class="menu__item"><a class="menu__link" href={% url 'posts' %}>Отзывы</a>
                 </li>
                 <li class="menu__item"><a class="menu__link" href="#">Туры </a>
                 </li>
@@ -159,7 +160,7 @@
         <h2 class="popular__title title">Популярные предложения</h2>
         <div class="popular__items">
           <!--При описании тега "а" прописан атрибут style. Это сделано для того,чтобы если заказчик захочет поменять картинку на сайте, программист смог реализовать ему такую возможность. В любой другой ситуации мы бекграунд прописывали бы в CSS-->
-          <a class="popular__link" href="#" style="background-image: url("main/img/popular-1.jpg");" >
+          <a class="popular__link" href="#" style="background-image: url({% static "main/img/popular-1.jpg" %});" >
             <h4 class="popular__linl-title">ПУТЕШЕСТВИЕ ПО НАМИБИИ</h4>
             <p class="popular__price">от 3000 $</p>
           </a>
@@ -233,7 +234,7 @@
           </div>
           <div class="about__popup"> <!--По сути это фоновое изображение с кнопкой--ссылкой .нажав на которую загрузится видео-->
             <a class="popup__link" href="https://www.youtube.com/watch?v=S_txHCAnAoE">
-              <img class="about__link-img" src="images/popup.svg" alt="">
+              <img class="about__link-img" src="https://res.cloudinary.com/dl4dawvyx/image/upload/v1704705897/popup_zxhjgd.svg" alt="">
             </a>
           </div>
         </div>
@@ -358,19 +359,10 @@
     <section class="booking">
       <div class="container">
         <h2 class="booking__title title">Забронируйте отдых в Африке</h2>
-        <form class="booking__form">
-          <input class="booking__input" type="text" placeholder="Ваше имя">
-          <input class="booking__input" type="text" placeholder="Телефон">
-          <input class="booking__input" type="text" placeholder="E-mail">
-          <textarea class="booking__area" placeholder="Комментарий"></textarea>
-          <button class="booking__btn" type="submit">Отправить заявку</button>
-          <!--Ниже создаем чекбокс-->
-          <label class="booking__label">
-            <input class="booking__checkbox" type="checkbox">
-            <!--span ниже создается для того чтобы далее стилизовать чекбокс,т.к чекбокс созданный по умолчанию мы скрыли в CSS-->
-            <span class="booking__checkbox-style"></span>
-            Согласие на обработку персональных данных
-          </label>
+        <form method='post' enctype = 'multipart/form-data'>
+          {% csrf_token %}
+          {{form.as_p}}
+          <button type='submit'>Отправить</button>
         </form>
       </div>
     </section>
@@ -400,5 +392,5 @@
         </div>
       </div>
     </footer>
-  </body>
-  </html>   
+</body>
+</html>   
